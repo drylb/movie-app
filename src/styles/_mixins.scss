@@ -1,0 +1,34 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column-space-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@mixin flex-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@mixin status-message {
+  font-size: 3em;
+  color: $white-color;
+  margin-top: 10%;
+  text-align: center;
+}
+
+@mixin detailed-page-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    'title title title title title title'
+    'poster poster overview overview overview overview'
+    'poster poster releaseDate releaseDate releaseDate releaseDate';
+  gap: 1rem;
+}

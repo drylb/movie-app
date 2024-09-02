@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Movie App Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The Movie App allows users to search for movies, view detailed information, and navigate through paginated search results. Built with React, Redux, SCSS, React Router, and TypeScript, the app fetches data from an external movie API and provides a user-friendly, mobile-first interface.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Components](#components)
+   - [SearchBar](#searchbar)
+   - [MoviesList](#movieslist)
+   - [DetailedPage](#detailedpage)
+   - [Pagination](#pagination)
+   - [Header](#header)
+   - [Footer](#footer)
+4. [State Management](#state-management)
+5. [Testing](#testing)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Search movies by title.
+- Paginate through search results.
+- View detailed movie information.
+- Handle loading and error states.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. **Clone the Repository:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```
+   git clone https://github.com/drylb/movie-app
+   cd movie-app
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install Dependecies:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ```
+  npm install
+  ```
+3. **Set up enviroment variables:**
+- Use [TMDB API](https://developer.themoviedb.org/reference/intro/getting-started)
+- Create a .env file in the root of the project and add your API key and API Acces token:
+```
+REACT_APP_TMDB_API_KEY=you_api_key_here
+REACT_APP_TMDB_ACCESS_TOKEN=you_api_access_token_here
+```
+4. **Start Development Server:**
 
-### `npm run eject`
+  ```
+  npm start
+  ```
+## Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### SearchBar
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Provides a search input and button.
+- Updates and clears the search query.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### MoviesList
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Displays a list of movies.
 
-## Learn More
+### DetailedPage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Displays detailed movie information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pagination
+
+- Handles pagination with previous and next buttons.
+- Displays current page and total pages.
+
+### Header
+
+- Contains header content.
+
+### Footer
+
+- Contains footer content.
+
+## State Management
+
+### Redux Toolkit
+
+- Manages global state including queries and movie data.
+
+### Actions
+
+- `setQuery(query: string)`: Sets the search query.
+- `fetchMovies(payload: { query: string, page: number })`: Fetches movies.
+- `clearMovies()`: Clears movie data.
+
+## Testing
+
+- Tests cover component rendering, state management, and pagination.
+  
+  ```
+  npm test
+  ```

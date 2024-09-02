@@ -1,0 +1,40 @@
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $darkgray-color;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: $black-color;
+}
+
+a {
+  color: $purple-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: $purple-color;
+  color: $white-color;
+  border-radius: 32px;
+}

@@ -1,0 +1,174 @@
+.container {
+  background-color: $darkgray-color;
+  min-height: 97vh;
+  height: 100%;
+}
+
+.search-bar {
+  @include flex-center;
+  padding: 10px;
+  flex-direction: column;
+
+  input {
+    min-width: 300px;
+    padding: 10px;
+    margin: 10px;
+    font-size: $font-size-base;
+    border: 1px solid $border-color;
+    border-radius: 32px;
+
+    &:focus {
+      outline: 2px solid $purple-color;
+    }
+
+    &::placeholder {
+      color: $darkgray-color;
+    }
+  }
+}
+
+.movie-list-container {
+  @include flex-center;
+  padding: 5px;
+
+  .nothing-here {
+    @include status-message;
+  }
+
+  .loading {
+    @include status-message;
+  }
+
+  .error {
+    @include status-message;
+  }
+
+  .movie-list {
+    padding-left: 0;
+
+    @media (min-width: $breakpoint) {
+      @include flex-row-wrap;
+      justify-content: center;
+    }
+
+    .movie-item {
+      @include flex-column-space-between;
+      background-color: #b7b2b2;
+      border: 1px solid $border-color;
+      text-align: center;
+      border-radius: 4px;
+      padding: 15px;
+      width: 15em;
+      margin: 0.9em;
+      list-style: none;
+
+      img {
+        border-radius: 4px;
+        margin: 0 auto;
+      }
+
+      a {
+        font-size: $font-size-lg;
+        margin-top: 10px;
+      }
+
+      a:hover {
+        color: $black-color;
+      }
+
+      .movie-title {
+        font-size: $font-size-lg;
+        margin: 10px 0;
+      }
+
+      .movie-overview {
+        font-size: $font-size-sm;
+        color: darken($white-color, 20%);
+      }
+    }
+  }
+}
+
+.detailed-page-container {
+  @include flex-center;
+  justify-content: flex-start;
+  min-height: 85vh;
+  height: 100%;
+  flex-direction: column;
+  background-color: $darkgray-color;
+  color: $white-color;
+
+  h1 {
+    text-align: center;
+  }
+
+  p {
+    width: 85%;
+    font-size: 1.2em;
+  }
+
+  @media (min-width: $breakpoint) {
+    @include detailed-page-grid;
+
+    h1 {
+      grid-area: title;
+    }
+
+    img {
+      grid-area: poster;
+      justify-self: center;
+      align-self: baseline;
+    }
+
+    .overview {
+      grid-area: overview;
+      align-self: start;
+    }
+
+    .release-date {
+      grid-area: releaseDate;
+    }
+  }
+}
+
+.footer {
+  background-color: $black-color;
+  color: $white-color;
+  text-align: center;
+}
+
+.header {
+  margin: 0;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  background-color: $black-color;
+}
+
+.movie-not-found {
+  @include status-message;
+}
+
+.pagination {
+  @include flex-center;
+  padding: 20px 0;
+
+  button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: $purple-color;
+
+    &:hover {
+      background-color: darken($purple-color, 10%);
+    }
+
+    &:disabled {
+      background-color: #a9a9a9;
+    }
+  }
+
+  span {
+    color: $white-color;
+    padding: 0 10px;
+  }
+}
